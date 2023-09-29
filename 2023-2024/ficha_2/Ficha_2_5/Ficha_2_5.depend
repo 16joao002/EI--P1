@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1695973802 source:c:\users\joaog\documents\github\ei_p1\2023-2024\ficha_2\ficha_2_5\main.c
+	<stdio.h>
+	<stdlib.h>
+
