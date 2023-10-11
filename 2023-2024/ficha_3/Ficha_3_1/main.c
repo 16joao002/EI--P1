@@ -27,7 +27,8 @@ int main()
         {
             somaDoWhile += numDoWhile;
             numDoWhile--;
-        }while(numDoWhile > 0);
+        }
+        while(numDoWhile > 0);
         printf("Resultado(Ciclo DoWhile):%d\n",somaDoWhile);
 
         for(int i=0; i <= numFor; i++)
