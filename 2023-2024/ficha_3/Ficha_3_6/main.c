@@ -15,22 +15,26 @@ int main()
         printf("S - Sair\n");
         printf("Opcao -> \n");
         scanf(" %c", &opc);
-        contador++;
+
         switch(opc)
         {
         case 'I':
         case 'i':
             num++;
+            contador++;
             break;
         case 'D':
         case 'd':
             num--;
+            contador++;
             break;
         case 'Z':
         case 'z':
                 num = 0;
+                contador++;
             break;
         default:
+            printf("ERRO - opcao invalida!\n");
             break;
         }
     }
