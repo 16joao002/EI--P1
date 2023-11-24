@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1700820692 source:c:\users\joaog\documents\github\ei_p1\2023-2024\ficha_6\ficha_6_1\ficha_6_1\funcoesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+
+1700816668 c:\users\joaog\documents\github\ei_p1\2023-2024\ficha_6\ficha_6_1\ficha_6_1\declaracoes.h
+
+1700816928 c:\users\joaog\documents\github\ei_p1\2023-2024\ficha_6\ficha_6_1\ficha_6_1\funcoesauxiliares.h
+
+1700821321 source:c:\users\joaog\documents\github\ei_p1\2023-2024\ficha_6\ficha_6_1\ficha_6_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+
