@@ -102,7 +102,7 @@ void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *q
             lerString("Nome:", funcionarios->nome, 80);
             funcionarios[*quantidadeFuncionarios].numero = numero;
             funcionarios[*quantidadeFuncionarios].venc = lerFloat("Vencimento:",0, 9999);
-            // funcionarios[*quantidadeFuncionarios].dataAdm = lerData();
+            //funcionarios[*quantidadeFuncionarios].dataAdm = lerData();
 
             (*quantidadeFuncionarios)++;
         }
@@ -117,7 +117,7 @@ void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *q
 void listarFuncionarios(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *quantidadeFuncionarios)
 {
     int i;
-    if (quantidadeFuncionarios < 0)
+    if (*quantidadeFuncionarios > 0 && *quantidadeFuncionarios < MAX_FUNCIONARIOS)
     {
         for(i = 0; i < *quantidadeFuncionarios; i++)
         {
