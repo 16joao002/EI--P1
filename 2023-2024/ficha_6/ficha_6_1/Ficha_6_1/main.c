@@ -11,9 +11,11 @@ int procurarEstudante(tipoEstudante vetorEstudantes[MAX_ESTUDANTES], int quantid
 int main()
 {
     tipoEstudante estudantes[MAX_ESTUDANTES];
-    int quantidadeEstudantes = 0;
-    int contadorAvalidados = 0, contadorPositivas = 0;
+    int quantidadeEstudantes;
+    int contadorAvalidados, contadorPositivas;
     char opc;
+    contadorAvalidados = 0;
+    contadorPositivas = 0;
     quantidadeEstudantes = leQuantidadeEstudantes();
     do
     {
@@ -23,7 +25,6 @@ int main()
         case 'A':
         case 'a':
             //acrescentar Estudantes
-            //procurar no array onde esta
             break;
         case 'I':
         case 'i':

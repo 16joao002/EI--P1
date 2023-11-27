@@ -4,12 +4,7 @@
 
 #define MAX_FUNCIONARIOS 50
 
-typedef struct
-{
-    int dia;
-    int mes;
-    int ano;
-} tipoData;
+
 
 typedef struct
 {
@@ -21,7 +16,7 @@ typedef struct
 
 int menu(int *quantidadeFuncionarios, float *mediaVenc, int *quantidadeFuncNovem);
 int procuraFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int quantidadeFuncionarios, int numero);
-void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *quantidadeFuncionarios);
+void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *quantidadeFuncionarios, int *quantidadeFuncNovem);
 void listarFuncionarios(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *quantidade);
 void mostrarDadosFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int quantidadeFuncionarios);
 void calculaVencimentos(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int quantidadeFuncionarios, int *contadorVenc1000, float *mediaVenc);
@@ -44,7 +39,7 @@ int main()
         {
         case 1:
             //Novo funcionario
-            adicionarFuncionario(funcionarios, &quantidadeFuncionarios);
+            adicionarFuncionario(funcionarios, &quantidadeFuncionarios, &quantidadeFuncNovem);
             break;
         case 2:
             //Listar todos os funcionarios
@@ -73,7 +68,7 @@ int menu(int *quantidadeFuncionarios, float *mediaVenc, int *quantidadeFuncNovem
     int opc;
     printf("************ MENU ************\n");
     printf("\nQuantidade Funcionarios: %d\t\tMedia de vencimentos mensais: %.2f\n", *quantidadeFuncionarios, *mediaVenc);
-    printf("\nQuantidade de Funcionarios admitidos no mes de novembro: %d\n", quantidadeFuncNovem);
+    printf("\nQuantidade de Funcionarios admitidos no mes de novembro: %d\n", *quantidadeFuncNovem);
     printf("1 - Novo Funcionario\n");
     printf("2 - Listar dados funcionario\n");
     printf("3 - Mostrar dados funcionario(indiv)\n");
@@ -83,7 +78,7 @@ int menu(int *quantidadeFuncionarios, float *mediaVenc, int *quantidadeFuncNovem
     return opc;
 }
 
-void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *quantidadeFuncionarios)
+void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *quantidadeFuncionarios, int *quantidadeFuncNovem)
 {
     if (*quantidadeFuncionarios == MAX_FUNCIONARIOS)
     {
@@ -99,16 +94,19 @@ void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *q
         posicao = procuraFuncionario(funcionarios, *quantidadeFuncionarios, numero);
         if (posicao == -1)
         {
-            lerString("Nome:", funcionarios->nome, 80);
+            lerString("Nome:", funcionarios[*quantidadeFuncionarios].nome, 80);
             funcionarios[*quantidadeFuncionarios].numero = numero;
             funcionarios[*quantidadeFuncionarios].venc = lerFloat("Vencimento:",0, 9999);
-            //funcionarios[*quantidadeFuncionarios].dataAdm = lerData();
-
+            funcionarios[*quantidadeFuncionarios].dataAdm = lerData();
+            if(funcionarios[*quantidadeFuncionarios].dataAdm.mes == 11)
+            {
+                (*quantidadeFuncNovem)++;
+            }
             (*quantidadeFuncionarios)++;
         }
         else
         {
-            printf("\nFuncionário com o número %d já existe.\n", numero);
+            printf("\nFuncionario com o número %d ja existe.\n", numero);
         }
     }
 }
@@ -177,24 +175,25 @@ void calculaVencimentos(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int quan
 {
     int i, somaVenc;
     somaVenc = 0;
+    *contadorVenc1000 = 0;
     if(quantidadeFuncionarios > 0 && quantidadeFuncionarios < MAX_FUNCIONARIOS)
     {
-    for(i=0; i <quantidadeFuncionarios; i++)
-    {
-        somaVenc += funcionarios[i].venc;
-        if (funcionarios[i].venc >= 1000.0)
+        for(i=0; i <quantidadeFuncionarios; i++)
         {
-            *contadorVenc1000++;
+            somaVenc += funcionarios[i].venc;
+            if (funcionarios[i].venc >= 1000)
+            {
+                (*contadorVenc1000)++;
+            }
         }
-    }
 
-    *mediaVenc = (float)somaVenc/quantidadeFuncionarios;
+        *mediaVenc = (float)somaVenc/quantidadeFuncionarios;
 
-    printf("\nA media dos vencimentos e %.2f.\n", *mediaVenc);
-    printf("Existem %d com o vencimento igual ou superior a 1000 euros.\n", *contadorVenc1000);
+        printf("\nA media dos vencimentos e %.2f.\n", *mediaVenc);
+        printf("Existem %d com o vencimento igual ou superior a 1000 euros.\n", *contadorVenc1000);
     }
     else
     {
-        printf("Erro - Não existem funcionarios\n\n");
+        printf("Erro - Nao existem funcionarios\n\n");
     }
 }

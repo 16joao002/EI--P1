@@ -1,17 +1,16 @@
 # depslib dependency file v1.0
-1700820692 source:c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\testepratico\funcoesauxiliares.c
+1701111783 source:c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\testepratico\funcoesauxiliares.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
-	"declaracoes.h"
 	"funcoesAuxiliares.h"
 
 1700816668 c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\testepratico\declaracoes.h
 
-1701014069 c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\testepratico\funcoesauxiliares.h
+1701111778 c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\testepratico\funcoesauxiliares.h
 
-1701021512 source:c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\testepratico\main.c
+1701111989 source:c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\testepratico\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funcoesAuxiliares.h"

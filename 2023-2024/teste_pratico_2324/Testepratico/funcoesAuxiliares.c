@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "declaracoes.h"
 #include "funcoesAuxiliares.h"
 
 #define ANO_MIN 2000
