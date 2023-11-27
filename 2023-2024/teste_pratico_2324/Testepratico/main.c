@@ -4,8 +4,6 @@
 
 #define MAX_FUNCIONARIOS 50
 
-
-
 typedef struct
 {
     int numero;
@@ -78,7 +76,7 @@ int menu(int *quantidadeFuncionarios, float *mediaVenc, int *quantidadeFuncNovem
     return opc;
 }
 
-void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *quantidadeFuncionarios, int *quantidadeFuncNovem)
+void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *quantidadeFuncionarios, int *quantidadeFuncNovem, int )
 {
     if (*quantidadeFuncionarios == MAX_FUNCIONARIOS)
     {
@@ -96,7 +94,7 @@ void adicionarFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int *q
         {
             lerString("Nome:", funcionarios[*quantidadeFuncionarios].nome, 80);
             funcionarios[*quantidadeFuncionarios].numero = numero;
-            funcionarios[*quantidadeFuncionarios].venc = lerFloat("Vencimento:",0, 9999);
+            funcionarios[*quantidadeFuncionarios].venc = lerFloat("Vencimento:",1, 9999);
             funcionarios[*quantidadeFuncionarios].dataAdm = lerData();
             if(funcionarios[*quantidadeFuncionarios].dataAdm.mes == 11)
             {
@@ -174,6 +172,7 @@ void mostrarDadosFuncionario(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int
 void calculaVencimentos(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int quantidadeFuncionarios, int *contadorVenc1000, float *mediaVenc)
 {
     int i, somaVenc;
+    float superior1000;
     somaVenc = 0;
     *contadorVenc1000 = 0;
     if(quantidadeFuncionarios > 0 && quantidadeFuncionarios < MAX_FUNCIONARIOS)
@@ -187,10 +186,12 @@ void calculaVencimentos(tipoFuncionario funcionarios[MAX_FUNCIONARIOS], int quan
             }
         }
 
-        *mediaVenc = (float)somaVenc/quantidadeFuncionarios;
+        //*mediaVenc = (float)somaVenc/quantidadeFuncionarios;
 
-        printf("\nA media dos vencimentos e %.2f.\n", *mediaVenc);
-        printf("Existem %d com o vencimento igual ou superior a 1000 euros.\n", *contadorVenc1000);
+        superior1000 = (float)*contadorVenc1000*100/(quantidadeFuncionarios);
+
+        //printf("\nA media dos vencimentos e %.2f.\n", *mediaVenc);
+        printf("Existem %.2f(%%) com o vencimento igual ou superior a 1000 euros.\n", superior1000);
     }
     else
     {
