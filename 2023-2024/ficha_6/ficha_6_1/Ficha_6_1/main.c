@@ -5,10 +5,9 @@
 #include "declaracoes.h"
 #include "funcoesAuxiliares.h"
 
-int leQuantidadeEstudantes();
-char menuPrincipal(int quantidadeEstudantes, int contadorAvalidados, float contadorPositivas);
+char menuPrincipal(int quantidadeEstudantes, int *contadorAvalidados, float *contadorPositivas);
 tipoEstudante lerDadosEstudantes();
-int procurarEstudante(tipoEstudante vetorEstudantes[MAX_ESTUDANTES], int quantidadeEstudantes, int numeroEstudante);
+
 
 int main()
 {
@@ -100,8 +99,38 @@ tipoEstudante lerDadosEstudantes()
     return estudante;
 }
 
-tipoEstudante leNotas(int quantidadeEstudantes, tipoEstudante estudantes[MAX_ESTUDANTES])
+void acrescentaEstudantes(tipoEstudante estudantes[MAX_ESTUDANTES], int quantidadeEstudantes)
 {
+    tipoEstudante dados;
+    int pos;
+
+    if(quantidadeEstudantes == MAX_ESTUDANTES)
+    {
+        printf("\nLimite de Estudantes atingido...\n");
+    }
+    else
+    {
+        dados = lerDadosEstudantes();
+        pos = procurarEstudante(estudantes, quantidadeEstudantes, dados.numero);
+        if(pos == -1)
+        {
+            printf("\nEsse estudante ja existe...\n\n");
+        }
+        else
+        {
+            estudantes[quantidadeEstudantes] = dados;
+            quantidadeEstudantes++;
+        }
+    }
+    return quantidadeEstudantes;
+}
+
+
+
+void leNotas(int quantidadeEstudantes, tipoEstudante estudantes[MAX_ESTUDANTES])
+{
+    tipoData data;
+
     int i;
     if(quantidadeEstudantes <= 0)
     {
@@ -111,8 +140,11 @@ tipoEstudante leNotas(int quantidadeEstudantes, tipoEstudante estudantes[MAX_EST
     {
         for(i = 0; i < quantidadeEstudantes; i++)
         {
-            estudantes[i].dataAval = lerData();
+            printf("\nEstudante: %d (%s)\n", estudantes[i].numero, estudantes[i].nome);
             estudantes[i].nota = lerFloat("Nota:",0,20);
+            printf("\nData avaliacao:\n");
+            data = lerData();
+            estudantes[i].dataAval = data;
         }
     }
 }
