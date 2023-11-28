@@ -13,6 +13,7 @@ typedef struct
     int ano;
 }tipoData;
 
+
 typedef struct
 {
     int numero;

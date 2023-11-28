@@ -168,7 +168,6 @@ void pressionarContinuar()
 {
     printf("\nPressione para continuar...\n\n");
     scanf("%c");
-    limparBuffer();
 }
 
 void limparEcra()

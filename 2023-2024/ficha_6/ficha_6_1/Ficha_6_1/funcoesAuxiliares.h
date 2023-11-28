@@ -10,5 +10,6 @@ void limparBuffer (void);
 void pressionarContinuar();
 void erro(int numErro, char msg[LONG_CHAR]);
 void limparEcra();
+tipoData lerData (void);
 
 #endif // FUNCOESAUXILIARES_H_INCLUDED

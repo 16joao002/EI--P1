@@ -7,7 +7,12 @@
 
 char menuPrincipal(int quantidadeEstudantes, int *contadorAvalidados, float *contadorPositivas);
 tipoEstudante lerDadosEstudantes();
-
+int leQuantidadeEstudantes();
+int acrescentaEstudantes(tipoEstudante estudantes[MAX_ESTUDANTES], int quantidadeEstudantes);
+void leNotas(tipoEstudante estudantes[MAX_ESTUDANTES], int quantidadeEstudantes);
+int procurarEstudante(tipoEstudante estudante[MAX_ESTUDANTES], int quantidadeEstudantes, int numeroEstudante);
+void mostrarDados(tipoEstudante estudante[MAX_ESTUDANTES], int quantidadeEstudantes);
+void contas(int quantidadeEstudantes, int contadorPositivas, float *notasPositivas, tipoEstudante vetorEstudante[MAX_ESTUDANTES], int *quantidadeAvaliados);
 
 int main()
 {
@@ -17,7 +22,6 @@ int main()
     char opc;
     contadorAvalidados = 0;
     contadorPositivas = 0;
-    quantidadeEstudantes = leQuantidadeEstudantes();
 
     do
     {
@@ -27,14 +31,17 @@ int main()
         case 'A':
         case 'a':
             //acrescentar Estudantes
+            quantidadeEstudantes = acrescentaEstudantes(estudantes,quantidadeEstudantes);
             break;
         case 'I':
         case 'i':
             //introduzir notas
+            leNotas(estudantes, quantidadeEstudantes);
             break;
         case 'M':
         case 'm':
             //mostrar dados
+            mostrarDados(estudantes, quantidadeEstudantes);
             break;
         case 'G':
         case 'g':
@@ -91,7 +98,6 @@ tipoEstudante lerDadosEstudantes()
     tipoEstudante estudante;
 
     printf("\n\nInserir dados do estudante\n");
-
     estudante.numero = lerInteiro("Numero:",MIN_ESTUDANTES, MAX_ESTUDANTES);
     lerString("Nome:", estudante.nome, LONG_CHAR);
     estudante.nota = -1;
@@ -99,7 +105,7 @@ tipoEstudante lerDadosEstudantes()
     return estudante;
 }
 
-void acrescentaEstudantes(tipoEstudante estudantes[MAX_ESTUDANTES], int quantidadeEstudantes)
+int acrescentaEstudantes(tipoEstudante estudantes[MAX_ESTUDANTES], int quantidadeEstudantes)
 {
     tipoEstudante dados;
     int pos;
@@ -112,7 +118,7 @@ void acrescentaEstudantes(tipoEstudante estudantes[MAX_ESTUDANTES], int quantida
     {
         dados = lerDadosEstudantes();
         pos = procurarEstudante(estudantes, quantidadeEstudantes, dados.numero);
-        if(pos == -1)
+        if(pos != -1)
         {
             printf("\nEsse estudante ja existe...\n\n");
         }
@@ -126,8 +132,7 @@ void acrescentaEstudantes(tipoEstudante estudantes[MAX_ESTUDANTES], int quantida
 }
 
 
-
-void leNotas(int quantidadeEstudantes, tipoEstudante estudantes[MAX_ESTUDANTES])
+void leNotas(tipoEstudante estudantes[MAX_ESTUDANTES], int quantidadeEstudantes)
 {
     tipoData data;
 
@@ -143,19 +148,18 @@ void leNotas(int quantidadeEstudantes, tipoEstudante estudantes[MAX_ESTUDANTES])
             printf("\nEstudante: %d (%s)\n", estudantes[i].numero, estudantes[i].nome);
             estudantes[i].nota = lerFloat("Nota:",0,20);
             printf("\nData avaliacao:\n");
-            data = lerData();
-            estudantes[i].dataAval = data;
+            estudantes[i].dataAval = lerData();
         }
     }
 }
 
-int procurarEstudante(tipoEstudante vetorEstudantes[MAX_ESTUDANTES], int quantidadeEstudantes, int numeroEstudante)
+int procurarEstudante(tipoEstudante estudante[MAX_ESTUDANTES], int quantidadeEstudantes, int numeroEstudante)
 {
     int posicao = -1, i;
 
     for(i = 0; i < quantidadeEstudantes; i++)
     {
-        if(vetorEstudantes[i].numero == numeroEstudante)
+        if(estudante[i].numero == numeroEstudante)
         {
             posicao = i;
             i = quantidadeEstudantes;
@@ -163,6 +167,32 @@ int procurarEstudante(tipoEstudante vetorEstudantes[MAX_ESTUDANTES], int quantid
     }
 
     return posicao;
+}
+
+void mostrarDados(tipoEstudante estudante[MAX_ESTUDANTES], int quantidadeEstudantes)
+{
+    int i;
+    if(quantidadeEstudantes == MAX_ESTUDANTES)
+    {
+        printf("\nLimite de estudantes...\n");
+    }
+    else
+    {
+        printf("\n\n Numero \t Nome \t Nota \t Data Avaliacao \n");
+        for(i = 0; i<quantidadeEstudantes; i++)
+        {
+            printf("  %d \t %s", estudante[i].numero, estudante[i].nome);
+
+            if (estudante[i].nota == -1)
+            {
+                printf(" \t Sem Nota \t N/A\n");
+            }
+            else
+            {
+                printf("  \t %.2f \t %2d-%2d-%4d\n", estudante[i].nota, estudante[i].dataAval.dia,estudante[i].dataAval.mes,estudante[i].dataAval.ano);
+            }
+        }
+    }
 }
 
 
