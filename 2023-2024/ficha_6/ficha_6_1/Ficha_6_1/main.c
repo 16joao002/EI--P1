@@ -87,22 +87,17 @@ int leQuantidadeEstudantes()
 }
 
 
-tipoEstudante lerDadosEstudantes(int quantidadeEstudantes, tipoEstudante estudantes[MAX_ESTUDANTES])
+tipoEstudante lerDadosEstudantes()
 {
-    int i;
+    tipoEstudante estudante;
 
-    if(quantidadeEstudantes <= 0)
-    {
-        erro(-2, "Nao existem estudantes...");
-    }
-    else
-    {
-        for(i = 0; i < quantidadeEstudantes; i++)
-        {
-            lerString("Nome:", estudantes[i].nome,80);
-            estudantes[i].numero = lerInteiro("Numero:",1,9999);
-        }
-    }
+    printf("\n\nInserir dados do estudante\n");
+
+    estudante.numero = lerInteiro("Numero:",MIN_ESTUDANTES, MAX_ESTUDANTES);
+    lerString("Nome:", estudante.nome, LONG_CHAR);
+    estudante.nota = -1;
+
+    return estudante;
 }
 
 tipoEstudante leNotas(int quantidadeEstudantes, tipoEstudante estudantes[MAX_ESTUDANTES])

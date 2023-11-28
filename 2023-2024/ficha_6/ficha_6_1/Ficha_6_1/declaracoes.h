@@ -2,6 +2,7 @@
 #define DECLARACOES_H_INCLUDED
 
 #define LONG_CHAR 80
+#define MIN_ESTUDANTES 1
 #define MAX_ESTUDANTES 100
 #define SHORT_CHAR 20
 
