@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+
 #include "declaracoes.h"
 #include "funcoesAuxiliares.h"
 
@@ -17,9 +19,10 @@ int main()
     contadorAvalidados = 0;
     contadorPositivas = 0;
     quantidadeEstudantes = leQuantidadeEstudantes();
+
     do
     {
-        opc = menuPrincipal(quantidadeEstudantes, contadorAvalidados, contadorPositivas);
+        opc = menuPrincipal(quantidadeEstudantes, &contadorAvalidados, &contadorPositivas);
         switch(opc)
         {
         case 'A':
@@ -55,12 +58,12 @@ int main()
     return 0;
 }
 
-char menuPrincipal(int quantidadeEstudantes, int contadorAvalidados, float contadorPositivas)
+char menuPrincipal(int quantidadeEstudantes, int *contadorAvalidados, float *contadorPositivas)
 {
     char opc;
     printf("************** Menu Principal **************\n");
     printf("Estudantes inseridos: %d\n\n", quantidadeEstudantes);
-    printf("Estudantes Avaliados : %d\t\tNotas Positivas (%%): %d", contadorAvalidados, contadorPositivas);
+    printf("Estudantes Avaliados : %d\t\tNotas Positivas (%%): %d", *contadorAvalidados, *contadorPositivas);
     printf("\nA - Acrescenta Estudante");
     printf("\nI - Introducao Notas");
     printf("\nM - Mostrar Dados");
@@ -68,7 +71,8 @@ char menuPrincipal(int quantidadeEstudantes, int contadorAvalidados, float conta
     printf("\nL - Ler Dados de ficheiro");
     printf("\nF - Fim");
     printf("\nOpcao -->");
-    scanf(" %c", &opc);
+    scanf("%c", &opc);
+    limparBuffer();
 
     return opc;
 }
@@ -78,12 +82,7 @@ char menuPrincipal(int quantidadeEstudantes, int contadorAvalidados, float conta
 int leQuantidadeEstudantes()
 {
     int numEstudantes = 0;
-    do
-    {
-        numEstudantes = lerInteiro("Numero de Estudantes: ", 1, 100);
-    }
-    while(numEstudantes < 0 || numEstudantes > 100);
-
+    numEstudantes = lerInteiro("Numero de Estudantes: ", 1, 100);
     return numEstudantes;
 }
 
