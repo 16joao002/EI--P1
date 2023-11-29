@@ -13,7 +13,6 @@ typedef struct
     int ano;
 }tipoData;
 
-
 typedef struct
 {
     int numero;
@@ -21,6 +20,5 @@ typedef struct
     float nota;
     tipoData dataAval;
 }tipoEstudante;
-
 
 #endif // DECLARACOES_H_INCLUDED
