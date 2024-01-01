@@ -1,4 +1,4 @@
-# EI--P1
+# EI-P1
 
 "Programação 1" was the first class about programming, memory management, pointers, structs... in my Computer Science degree. This repository serves as the central hub for my learning about C in this class, it contains all my work done in class and out of it!
 
