@@ -38,10 +38,19 @@ typedef struct
     char nome [TEXTO_BREVE];
     char morada [TEXTO_LONGO];
     int telefone;
+    int quantidadeAgendamentos;
 } tipoCliente;
 
 
-
+typedef struct{
+    int id;
+    int numContribuinte;
+    tipoData data;
+    tipoHorario horario;
+    char descricao[TEXTO_LONGO];
+    float custo;
+    int grauSatisfacao;
+}tipoAgendamento;
 
 
 #endif // DECLARACOES_H_INCLUDED

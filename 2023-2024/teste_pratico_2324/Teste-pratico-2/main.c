@@ -1,20 +1,19 @@
 /*
-* @folder numeroNome_ExP1
+* @folder 2221463JoaoBett_ExP1
 * @brief Gestão da agenda de um técnico de reparações de eletrodomésticos ao domicílio
 * @date 31-01-2017
-* @author (COLOCAR O NUMERO, NOME E EMAIL)
 */
-
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "declaracoes.h"
 #include "funcoesAuxiliares.h"
+#include "Exame.h"
 
 
 /** ------------------------ Funções dos menus ----------------------- **/
-int menu(int totalClientes);
+int menu(int totalClientes, int totalAgendamentos, int totalVisitas);
 int menuClientes(void);
 int menuAgendamentos(void);
 int menuEstatisticas(void);
@@ -34,7 +33,6 @@ void escreverFicheiroBinario(tipoCliente vetorClientes[MAX], int quantClientes);
 void lerFicheiroBinario(tipoCliente vetorClientes[MAX], int *quantClientes);
 
 
-
 /** ------------------------------ main ------------------------------ **/
 
 int main(void)
@@ -44,9 +42,17 @@ int main(void)
 
     quantClientes = 0;
 
+    //Adicionado
+    tipoAgendamento *vetorAgendamento;
+    int totalAgendamentos, totalVisitas;
+
+    vetorAgendamento = NULL;
+    quantidadeAgendamentos = 0;
+    quantidadeVisitas = 0;
+
     do
     {
-        opcao = menu(quantClientes);
+        opcao = menu(quantClientes, quantidadeAgendamentos, quantidadeVisitas);
         switch (opcao)
         {
             case 1: // menu CLIENTES
@@ -75,7 +81,7 @@ int main(void)
                     switch (opcao2)
                     {
                         case 1:  // Adicionar novo agendamento
-                            printf("\n\nATENCAO: opcao para implementar no exame\n\n");
+                            *inserirNovoAgendamento(&vetorAgendamento, &quantidadeAgendamentos, vetorClientes, quantClientes);
                             break;
                         case 2 : // Registar Visita
                             printf("\n\nATENCAO: opcao para implementar no exame\n\n");
@@ -289,12 +295,13 @@ void lerFicheiroBinario(tipoCliente vetorClientes[MAX], int *quantClientes)
 
 /** ----------------------- Funções dos MENUS ------------------------- **/
 
-int menu(int totalClientes)
+int menu(int totalClientes, int totalAgendamentos, int totalVisitas)
 {
     int opcao;
 
     printf("\n\n---------------- TECNICO DE REPARACOES - AGENDA ----------------\n\n");
     printf("Total de Clientes: %d\n\n", totalClientes);
+    printf("Total de Agendamentos: %d\t\tTotal de Visitas: %d\n\n", totalAgendamentos, totalVisitas);
     printf("\t1 - Clientes\n\t2 - Agendamentos\n\t3 - Estatisticas\n\t4 - Ficheiros\n\n\t0 - Sair\n\n");
 
     opcao = lerInteiro("\t\tIndique a opcao:", 0, 4);
