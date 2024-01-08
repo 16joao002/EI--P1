@@ -100,19 +100,35 @@ int procurarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgenda
 
 
 
-/*
+
 //Regista o custo da reparacao e o grau de satisfa�ao do cliente
-void registarVisita(){
+void registarVisita(tipoAgendamento *vetorAgendamentos, int *quantidadeAgendamentos, tipoCliente clientes[MAX], int quantidadeClientes){
     int pos;
+    int numContribuinte;
+    int posCli = -1;
 
     if(quantidadeClientes <= 0){
         printf("Erro - Nao existem clientes");
     }
     else{
-        procuraAgendamento()
+        if(vetorAgendamentos == NULL){
+            printf("Erro - Nao foi possivel alocar a memoria.\n");
+        }
+        else{
+            numContribuinte = lerInteiro("Introduza o numero de contribuinte: ", 111111111, 999999999);
+            posCli = procurarCliente(clientes, quantidadeClientes, numContribuinte);
+            if (posCli == -1){
+                printf("Erro - Nao existem esse numero de contribuinte.\n");
+            }
+            else{
+                vetorAgendamentos.custo = lerFloat("Introduza o custo da reparação:", 1, 5000);
+                vetorAgendamentos.grauSatisfacao = lerInteiro("Introduza o grau de satisfação:",1,3);
+            }
+        }
     }
 }
 
+/*
 //listar clientes e respetivos agendamentos - listar todos os dados de cada utilizador e os seus agendamentos
 void consultarAgendamento(){
 
