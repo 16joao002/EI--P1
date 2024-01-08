@@ -214,9 +214,39 @@ void melhoresClientes(tipoCliente clientes[MAX], int quantidadeClientes, tipoAge
     }
 }
 
-/*
+
 //Percentagem de satisfacao dos clientes
-void percSatisfacao(){
+void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *agendamentos, int quantidadeAgendamentos){
+    int i, soma1 = 0, soma2 = 0, soma3 = 0, somaTotal = 0;
+    float percentagem1 = 0, percentagem2 = 0, percentagem3 = 0;
+
+    for (i=0; i < numAgendamentos; i++)
+    {
+        if (agendamentos[i].grauSatisfacao == 1)
+        {
+            soma1++;
+        }
+        else{
+            if (agendamentos[i].grauSatisfacao == 2)
+            {
+                soma2++;
+            }
+            else{
+                soma3++;
+            }
+        }
+        somaTotal++;
+    }
+
+    percentagem1 = (float)soma1/somaTotal*100;
+    percentagem2 = (float)soma2/somaTotal*100;
+    percentagem3 = (float)soma3/somaTotal*100;
+
+    printf("\nGrau de Satisfacao 1: %.2f%%\n", percentagem1);
+    printf("Grau de Satisfacao 2: %.2f%%\n", percentagem2);
+    printf("Grau de Satisfacao 3: %.2f%%\n", percentagem3);
+}
+/*
     primeiro procurar qual o agendamento
     ver se existe
         se nao existir
@@ -228,8 +258,6 @@ void percSatisfacao(){
             se nao existir
                 fazer a pergunta de qual o grau de stasfa�ao
                 guardar la
-}
-
 //Listar todos os agendamentos de uma determinada data - total de agendamentos nessa data
 void consultarAgendamentosData(){
 
