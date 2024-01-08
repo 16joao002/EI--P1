@@ -95,13 +95,9 @@ int procurarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgenda
     return posAgendamentos;
 }
 
-
-
-
 //Regista o custo da reparacao e o grau de satisfa�ao do cliente
 void registarVisita(tipoAgendamento *vetorAgendamentos, int *quantidadeAgendamentos, tipoCliente clientes[MAX], int quantidadeClientes, int *quantidadeVisitas)
 {
-    int pos;
     int numContribuinte;
     int posCli = -1;
     tipoData data;
@@ -139,8 +135,8 @@ void registarVisita(tipoAgendamento *vetorAgendamentos, int *quantidadeAgendamen
                 }
                 else
                 {
-                    vetorAgendamentos.custo = lerFloat("Introduza o custo da reparação:", 1, 5000);
-                    vetorAgendamentos.grauSatisfacao = lerInteiro("Introduza o grau de satisfação:",1,3);
+                    vetorAgendamentos->custo = lerFloat("Introduza o custo da reparação:", 1, 5000);
+                    vetorAgendamentos->grauSatisfacao = lerInteiro("Introduza o grau de satisfação:",1,3);
                     (*quantidadeVisitas)++;
                 }
             }
@@ -155,6 +151,7 @@ void consultarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgen
 
     tipoData data;
     tipoHorario horario;
+    int posAgendamento;
     int i;
 
     if(quantidadeClientes < 0)
@@ -166,11 +163,11 @@ void consultarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgen
         //pede a data ao utilizador
         data = lerData();
         horario = lerHorario();
-        posAgendamento= procurarAgendamento(*vetorAgendamentos, quantidadeAgendamentos, data, horario);
+        posAgendamento= procurarAgendamento(vetorAgendamentos, quantidadeAgendamentos, data, horario);
 
         if(posAgendamento == -1)
         {
-            printf("Erro - Nao existem agendamentos")
+            printf("Erro - Nao existem agendamentos");
         }
         else
         {
@@ -228,7 +225,7 @@ void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgend
     percentagem2 = 0;
     percentagem3 = 0;
 
-    for (i=0; i < numAgendamentos; i++)
+    for (i=0; i < quantidadeAgendamentos; i++)
     {
         if (agendamentos[i].grauSatisfacao == 1)
         {
@@ -254,6 +251,16 @@ void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgend
     printf("Grau de Satisfacao 2: %.2f%%\n", percentagem2);
     printf("Grau de Satisfacao 3: %.2f%%\n", percentagem3);
 }
+
+void escreverAgendamento(tipoAgendamento *vetorAgendamento)
+{
+    printf("\n\nContribuinte: %d\t\tID: %d\n", vetorAgendamento->numContribuinte, vetorAgendamento->id);
+    printf("\n\nCusto: %.2f\t\tGrau de satisfacao: %d\n", vetorAgendamento->custo, vetorAgendamento->grauSatisfacao);
+    printf("\n\nData: %d/%d/%d\t\tHora: %d:%d\n", vetorAgendamento->data.dia, vetorAgendamento->data.mes, vetorAgendamento->data.ano , vetorAgendamento->horario.horas, vetorAgendamento->horario.minutos);
+    printf("Descricao: %s\n",vetorAgendamento->descricao);
+}
+
+
 /*
     primeiro procurar qual o agendamento
     ver se existe
