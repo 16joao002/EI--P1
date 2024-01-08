@@ -217,8 +217,16 @@ void melhoresClientes(tipoCliente clientes[MAX], int quantidadeClientes, tipoAge
 
 //Percentagem de satisfacao dos clientes
 void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *agendamentos, int quantidadeAgendamentos){
-    int i, soma1 = 0, soma2 = 0, soma3 = 0, somaTotal = 0;
-    float percentagem1 = 0, percentagem2 = 0, percentagem3 = 0;
+    int i, soma1, soma2, soma3, somaTotal;
+    soma1 = 0;
+    soma2 = 0;
+    soma3 = 0;
+    somaTotal = 0;
+
+    float percentagem1, percentagem2, percentagem3;
+    percentagem1 = 0;
+    percentagem2 = 0;
+    percentagem3 = 0;
 
     for (i=0; i < numAgendamentos; i++)
     {
