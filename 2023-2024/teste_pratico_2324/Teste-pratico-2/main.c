@@ -42,13 +42,14 @@ int main(void)
 
     quantClientes = 0;
 
-    //Adicionado
+    //Adicionado para o exame
     tipoAgendamento *vetorAgendamento;
-    int totalAgendamentos, totalVisitas;
+    int quantidadeAgendamentos, quantidadeVisitas;
 
-    vetorAgendamento = NULL;
     quantidadeAgendamentos = 0;
     quantidadeVisitas = 0;
+    //criacao vetor dinamico de agendamentos
+    vetorAgendamento = malloc(0 * sizeof(tipoAgendamento));
 
     do
     {
@@ -81,7 +82,7 @@ int main(void)
                     switch (opcao2)
                     {
                         case 1:  // Adicionar novo agendamento
-                            *inserirNovoAgendamento(&vetorAgendamento, &quantidadeAgendamentos, vetorClientes, quantClientes);
+                            inserirNovoAgendamento(vetorAgendamento, &quantidadeAgendamentos, vetorClientes, quantClientes);
                             break;
                         case 2 : // Registar Visita
                             printf("\n\nATENCAO: opcao para implementar no exame\n\n");
@@ -129,6 +130,7 @@ int main(void)
 
     } while (opcao != 0);
 
+    free(vetorAgendamento);
 
     return 0;
 }

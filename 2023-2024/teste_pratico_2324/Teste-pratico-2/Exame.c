@@ -4,21 +4,17 @@
 #include <ctype.h>
 #include "declaracoes.h"
 #include "funcoesAuxiliares.h"
+#include "Exame.h"
 
-//inserir dados de um novo agendamento - nao podem haver 2 agendamentos com a mesma data e hora
-//ajuda na pagina 5 do ultimo ppt
-tipoAgendamento *inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes)
+tipoAgendamento inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes)
 {
-    tipoAgendamento *oldArrayAddress, agendamentosAux;
-    int posClientes, posAgendamentos, i;
+    int posClientes, posAgendamentos,numContribuinte;
     tipoData data;
     tipoHorario horario;
 
+    tipoAgendamento agendamentosAux;
     posClientes = -1;
     posAgendamentos = -1;
-
-    *oldArrayAddress = NULL;
-    oldArrayAddress = vetorAgendamentos;
 
     //verifica se existem clientes
     if(quantidadeClientes <= 0)
@@ -27,6 +23,7 @@ tipoAgendamento *inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *
     }
     else
     {
+
         numContribuinte = lerInteiro("Introduza o numero de contribuinte do Cliente:\n", 111111111, 999999999);
         posClientes = procurarCliente(clientes, quantidadeClientes, numContribuinte);
         //verifica se existe algum cliente com esse numero de contribuinte
@@ -37,7 +34,7 @@ tipoAgendamento *inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *
         else
         {
             //adiciona uma posicao ao vetor
-            vetorAgendamentos = realloc(vetorAgendamentos, ((*totalAgendamentos) + 1) * sizeof(tipoAgendamento));
+            vetorAgendamentos = realloc(vetorAgendamentos, ((*quantidadeAgendamentos) + 1) * sizeof(tipoAgendamento));
 
             if(vetorAgendamentos == NULL)
             {
@@ -60,11 +57,16 @@ tipoAgendamento *inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *
                 }
                 while(posAgendamentos != -1);
 
-                agendamentosAux.id++;
+                if(agendamentosAux.id == 0){
+                    agendamentosAux.id = 1;
+                }
+                else{
+                    agendamentosAux.id++;
+                }
                 agendamentosAux.data = data;
                 agendamentosAux.horario = horario;
-                lerString("\nDescricao: ", agendamentosAux.descricao);
-                agendamentosAux.numContribuinte = clientes[posClientes].numContribuinte;
+                lerString("\nDescricao: ", agendamentosAux.descricao, TEXTO_LONGO);
+                agendamentosAux.numContribuinte = numContribuinte;
 
                 vetorAgendamentos[*quantidadeAgendamentos] = agendamentosAux;
                 (*quantidadeAgendamentos)++;
@@ -72,9 +74,7 @@ tipoAgendamento *inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *
             }
         }
     }
-    //falta dar free aqui do vetor agendamentos mas nao sei como fazer, vai dar memory leaks se nao fizer
-    //free(vetorAgendamentos);
-    return vetorAgendamentos;
+    return *vetorAgendamentos;
 }
 
 int procurarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgendamentos, tipoData data, tipoHorario horario)
@@ -83,7 +83,7 @@ int procurarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgenda
 
     for (int i = 0; i < quantidadeAgendamentos; i++)
     {
-        if (vetorAgendamentos[i].data == data && vetorAgendamentos[i].horario == horario)
+        if (vetorAgendamentos[i].data.dia == data.dia && vetorAgendamentos[i].data.dia == data.mes && vetorAgendamentos[i].data.ano == data.ano && vetorAgendamentos[i].horario.horas == horario.horas && vetorAgendamentos[i].horario.minutos == horario.minutos)
         {
             posAgendamentos = i;
             i = quantidadeAgendamentos;
@@ -147,7 +147,6 @@ void melhoresClientes(tipoCliente clientes[MAX], int quantidadeClientes, tipoAge
 
 //Percentagem de satisfacao dos clientes
 void percSatisfacao(){
-    /*
     primeiro procurar qual o agendamento
     ver se existe
         se nao existir

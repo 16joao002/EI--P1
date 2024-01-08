@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Exame.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exame.h" />
 		<Unit filename="declaracoes.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
@@ -42,9 +46,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
