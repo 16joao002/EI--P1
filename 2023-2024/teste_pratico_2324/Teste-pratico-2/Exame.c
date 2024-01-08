@@ -6,7 +6,7 @@
 #include "funcoesAuxiliares.h"
 #include "Exame.h"
 
-tipoAgendamento inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes)
+void inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes)
 {
     int posClientes, posAgendamentos,numContribuinte;
     tipoData data;
@@ -36,6 +36,7 @@ tipoAgendamento inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *q
             //adiciona uma posicao ao vetor
             vetorAgendamentos = realloc(vetorAgendamentos, ((*quantidadeAgendamentos) + 1) * sizeof(tipoAgendamento));
 
+
             if(vetorAgendamentos == NULL)
             {
                 printf("Erro - Nao foi possivel alocar a memoria.\n");
@@ -57,10 +58,12 @@ tipoAgendamento inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *q
                 }
                 while(posAgendamentos != -1);
 
-                if(agendamentosAux.id == 0){
+                if(agendamentosAux.id == 0)
+                {
                     agendamentosAux.id = 1;
                 }
-                else{
+                else
+                {
                     agendamentosAux.id++;
                 }
                 agendamentosAux.data = data;
@@ -74,16 +77,19 @@ tipoAgendamento inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *q
             }
         }
     }
-    return *vetorAgendamentos;
 }
 
 int procurarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgendamentos, tipoData data, tipoHorario horario)
 {
-    int posAgendamentos = -1;
+    int posAgendamentos = -1, i;
 
-    for (int i = 0; i < quantidadeAgendamentos; i++)
+    for (i = 0; i < quantidadeAgendamentos; i++)
     {
-        if (vetorAgendamentos[i].data.dia == data.dia && vetorAgendamentos[i].data.dia == data.mes && vetorAgendamentos[i].data.ano == data.ano && vetorAgendamentos[i].horario.horas == horario.horas && vetorAgendamentos[i].horario.minutos == horario.minutos)
+        if (vetorAgendamentos[i].data.dia == data.dia &&
+            vetorAgendamentos[i].data.mes == data.mes &&
+            vetorAgendamentos[i].data.ano == data.ano &&
+            vetorAgendamentos[i].horario.horas == horario.horas &&
+            vetorAgendamentos[i].horario.minutos == horario.minutos)
         {
             posAgendamentos = i;
             i = quantidadeAgendamentos;
@@ -95,7 +101,7 @@ int procurarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgenda
 
 
 /*
-//Regista o custo da reparacao e o grau de satisfaçao do cliente
+//Regista o custo da reparacao e o grau de satisfaï¿½ao do cliente
 void registarVisita(){
     int pos;
 
@@ -156,6 +162,6 @@ void percSatisfacao(){
             se existir
                 printf erro
             se nao existir
-                fazer a pergunta de qual o grau de stasfaçao
+                fazer a pergunta de qual o grau de stasfaï¿½ao
                 guardar la
 }*/

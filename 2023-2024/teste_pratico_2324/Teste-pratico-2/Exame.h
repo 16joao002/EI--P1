@@ -14,7 +14,7 @@ typedef struct{
     int grauSatisfacao;
 }tipoAgendamento;
 
-tipoAgendamento inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes);
+void inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes);
 int procurarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgendamentos, tipoData data, tipoHorario horario);
 
 #endif // EXAME_H_INCLUDED

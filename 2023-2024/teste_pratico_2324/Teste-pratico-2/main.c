@@ -48,6 +48,7 @@ int main(void)
 
     quantidadeAgendamentos = 0;
     quantidadeVisitas = 0;
+
     //criacao vetor dinamico de agendamentos
     vetorAgendamento = malloc(0 * sizeof(tipoAgendamento));
 
