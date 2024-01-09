@@ -70,7 +70,7 @@ int main(void)
                             listarClientes(vetorClientes, quantClientes);
                             break;
                         case 3:  // Listar Clientes e respetivas marcacoes
-                            printf("\n\nATENCAO: opcao para implementar no exame\n\n");
+                            consultarAgendamento(vetorAgendamento, quantidadeAgendamentos, vetorClientes, quantClientes);
                             break;
                     }
                 } while (opcao2 != 0);
@@ -86,10 +86,10 @@ int main(void)
                             inserirNovoAgendamento(vetorAgendamento, &quantidadeAgendamentos, vetorClientes, quantClientes);
                             break;
                         case 2 : // Registar Visita
-                            printf("\n\nATENCAO: opcao para implementar no exame\n\n");
+                            registarVisita(vetorAgendamento, &quantidadeAgendamentos, vetorClientes, quantClientes, &quantidadeVisitas);
                             break;
                         case 3:  // Consultar Agendamentos (por data)
-                            printf("\n\nATENCAO: opcao para implementar no exame\n\n");
+                            consultarAgendamento(vetorAgendamento, quantidadeAgendamentos, vetorClientes, quantClientes);
                             break;
                     }
                 } while (opcao2 != 0);
@@ -102,10 +102,10 @@ int main(void)
                     switch (opcao2)
                     {
                         case 1:  // Melhor(es) Cliente(s) - os que têm mais agendamentos
-                            printf("\n\nATENCAO: opcao para implementar no exame\n\n");
+                            melhoresClientes(vetorClientes, quantClientes, vetorAgendamento, quantidadeAgendamentos);
                             break;
                         case 2 : // Índice/Percentagens por graus de satisfacao dos clientes
-                            printf("\n\nATENCAO: opcao para implementar no exame\n\n");
+                            percSatisfacao(vetorClientes, quantClientes, vetorAgendamento, quantidadeAgendamentos);
                             break;
                     }
                 } while (opcao2 != 0);

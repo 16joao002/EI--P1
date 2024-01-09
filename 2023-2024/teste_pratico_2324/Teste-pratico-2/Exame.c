@@ -6,7 +6,7 @@
 #include "funcoesAuxiliares.h"
 #include "Exame.h"
 
-void inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes)
+tipoAgendamento inserirNovoAgendamento(tipoAgendamento *vetorAgendamento,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes)
 {
     int posClientes, posAgendamentos,numContribuinte;
     tipoData data;
@@ -45,7 +45,7 @@ void inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAg
                 data = lerData();
                 horario = lerHorario();
 
-                posAgendamentos = procurarAgendamento(vetorAgendamento, quantidadeAgendamentos, data, horario);
+                posAgendamentos = procurarAgendamento(vetorAgendamento, *quantidadeAgendamentos, data, horario);
                 if(posAgendamentos == -1)
                 {
                     printf("Erro - Data/Horario ja inseridos\n");
@@ -67,13 +67,14 @@ void inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAg
             }
         }
     }
+    return *vetorAgendamento;
 }
 
-int procurarAgendamento(tipoAgendamento *vetorAgendamento, int quantidadeAgendamentos, tipoData data, tipoHorario horario)
+int procurarAgendamento(tipoAgendamento *vetorAgendamento, int *quantidadeAgendamentos, tipoData data, tipoHorario horario)
 {
     int posAgendamentos = -1, i;
 
-    for (i = 0; i < quantidadeAgendamentos; i++)
+    for (i = 0; i < *quantidadeAgendamentos; i++)
     {
         if (vetorAgendamento[i].data.dia == data.dia &&
                 vetorAgendamento[i].data.mes == data.mes &&
@@ -82,7 +83,7 @@ int procurarAgendamento(tipoAgendamento *vetorAgendamento, int quantidadeAgendam
                 vetorAgendamento[i].horario.minutos == horario.minutos)
         {
             posAgendamentos = i;
-            i = quantidadeAgendamentos;
+            i = *quantidadeAgendamentos;
         }
     }
     return posAgendamentos;
@@ -151,12 +152,12 @@ void consultarAgendamento(tipoAgendamento *vetorAgendamento, int quantidadeAgend
             escreverCliente(cliente[i]);
             for (j=0; j < quantidadeAgendamentos; j++)
             {
-                if (agendamentos[j].numContribuinte == cliente[i].numContribuinte)
+                if (vetorAgendamento[j].numContribuinte == cliente[i].numContribuinte)
                 {
                     printf("ID: %d\t\t\tData: %d/%d/%d\n", vetorAgendamento[j].id, vetorAgendamento[j].data.dia, vetorAgendamento[j].data.mes, vetorAgendamento[j].data.ano);
                     printf("Horario: %d:%d\n", vetorAgendamento[j].horario.horas, vetorAgendamento[j].horario.minutos);
                     printf("Problema: %s\n", vetorAgendamento[j].descricao);
-                    if(agendamentos[j].custo == -1)
+                    if(vetorAgendamento[j].custo == -1)
                     {
                         printf("Custo: Indisponivel. Visita ainda nao foi feita.\n");
                     }
