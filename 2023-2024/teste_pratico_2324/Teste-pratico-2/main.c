@@ -1,26 +1,27 @@
 /*
-* @folder 2221463JoaoBett_ExP1
+* @folder numeroNome_ExP1
 * @brief Gestão da agenda de um técnico de reparações de eletrodomésticos ao domicílio
 * @date 31-01-2017
+* @author (COLOCAR O NUMERO, NOME E EMAIL)
 */
+
 
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "declaracoes.h"
 #include "funcoesAuxiliares.h"
-#include "Exame.h"
-
+#include "exame.h"
 
 /** ------------------------ Funções dos menus ----------------------- **/
-int menu(int totalClientes, int totalAgendamentos, int totalVisitas);
+int menu(int totalClientes);
 int menuClientes(void);
 int menuAgendamentos(void);
 int menuEstatisticas(void);
 int menuFicheiros(void);
 
 
-/** ------------------- Funções das Funcionalidades ------------------- **/
+///** ------------------- Funções das Funcionalidades ------------------- **/
 
 void inserirNovoCliente (tipoCliente vetorClientes[MAX], int *quantClientes);
 int procurarCliente (tipoCliente vetorClientes[MAX], int quantCliente, int numContribuinte);
@@ -29,32 +30,30 @@ void listarClientes (tipoCliente vetorClientes[MAX], int quantClientes);
 
 
 
-void escreverFicheiroBinario(tipoCliente vetorClientes[MAX], int quantClientes);
-void lerFicheiroBinario(tipoCliente vetorClientes[MAX], int *quantClientes);
-
+void escreverFicheiroBinario(tipoCliente vetorClientes[MAX], int quantClientes, tipoAgendamento *vetorAgendamentos, int quantAgendamentos, tipoVisita *vetorVisita, int quantVisitas);
+void lerFicheiroBinario(tipoCliente vetorClientes[MAX], int *quantClientes, tipoAgendamento **vetorAgendamentos, int *quantAgendamentos, tipoVisita **vetorVisita, int *quantVisitas);
+//void escreverFicheiroBinario(tipoCliente vetorClientes[MAX], int quantClientes);
+//void lerFicheiroBinario(tipoCliente vetorClientes[MAX], int *quantClientes);
 
 /** ------------------------------ main ------------------------------ **/
 
 int main(void)
 {
+    //alterado
     tipoCliente vetorClientes[MAX];
-    int quantClientes, opcao, opcao2;
+    tipoAgendamento *vetorAgendamentos = NULL;
+    tipoVisita *vetorVisita = NULL;
+
+    int quantVisitas,quantClientes,quantAgendamentos, opcao, opcao2;
 
     quantClientes = 0;
+    quantAgendamentos = 0;
 
-    //Adicionado para o exame
-    tipoAgendamento *vetorAgendamento;
-    int quantidadeAgendamentos, quantidadeVisitas;
-
-    quantidadeAgendamentos = 0;
-    quantidadeVisitas = 0;
-
-    //criacao vetor dinamico de agendamentos
-    vetorAgendamento = malloc(0 * sizeof(tipoAgendamento));
+    vetorVisita = calloc(0, sizeof(tipoVisita));
 
     do
     {
-        opcao = menu(quantClientes, quantidadeAgendamentos, quantidadeVisitas);
+        opcao = menu(quantClientes);
         switch (opcao)
         {
             case 1: // menu CLIENTES
@@ -70,7 +69,7 @@ int main(void)
                             listarClientes(vetorClientes, quantClientes);
                             break;
                         case 3:  // Listar Clientes e respetivas marcacoes
-                            consultarAgendamento(vetorAgendamento, quantidadeAgendamentos, vetorClientes, quantClientes);
+                            listarClientesAgendamentos (vetorClientes,vetorAgendamentos,vetorVisita,quantClientes,quantAgendamentos);
                             break;
                     }
                 } while (opcao2 != 0);
@@ -83,13 +82,14 @@ int main(void)
                     switch (opcao2)
                     {
                         case 1:  // Adicionar novo agendamento
-                            inserirNovoAgendamento(vetorAgendamento, &quantidadeAgendamentos, vetorClientes, quantClientes);
+                            vetorAgendamentos = inserirAgendamentos(vetorAgendamentos,vetorClientes, &quantAgendamentos, quantClientes, vetorVisita);
                             break;
                         case 2 : // Registar Visita
-                            registarVisita(vetorAgendamento, &quantidadeAgendamentos, vetorClientes, quantClientes, &quantidadeVisitas);
+                            vetorVisita = registarVisita (vetorVisita,vetorAgendamentos,quantAgendamentos,&quantVisitas);
+
                             break;
                         case 3:  // Consultar Agendamentos (por data)
-                            consultarAgendamento(vetorAgendamento, quantidadeAgendamentos, vetorClientes, quantClientes);
+                            consultaAgendamentoData(vetorAgendamentos,quantAgendamentos,vetorClientes);
                             break;
                     }
                 } while (opcao2 != 0);
@@ -102,10 +102,10 @@ int main(void)
                     switch (opcao2)
                     {
                         case 1:  // Melhor(es) Cliente(s) - os que têm mais agendamentos
-                            melhoresClientes(vetorClientes, quantClientes, vetorAgendamento, quantidadeAgendamentos);
+                            melhorCliente (vetorClientes,vetorAgendamentos,quantClientes,quantAgendamentos);
                             break;
                         case 2 : // Índice/Percentagens por graus de satisfacao dos clientes
-                            percSatisfacao(vetorClientes, quantClientes, vetorAgendamento, quantidadeAgendamentos);
+                            percentagemSatisfacao(vetorVisita, quantClientes,&quantVisitas);
                             break;
                     }
                 } while (opcao2 != 0);
@@ -118,10 +118,10 @@ int main(void)
                     switch (opcao2)
                     {
                         case 1:  // Guardar no ficheiro
-                            escreverFicheiroBinario(vetorClientes, quantClientes);
+                            escreverFicheiroBinario(vetorClientes, quantClientes, vetorAgendamentos, quantAgendamentos, vetorVisita, quantVisitas);
                             break;
                         case 2 : // Ler do ficheiro
-                            lerFicheiroBinario(vetorClientes, &quantClientes);
+                            lerFicheiroBinario(vetorClientes, &quantClientes, &vetorAgendamentos, &quantAgendamentos, &vetorVisita, &quantVisitas);
                             break;
                     }
                 } while (opcao2 != 0);
@@ -131,8 +131,8 @@ int main(void)
 
     } while (opcao != 0);
 
-    free(vetorAgendamento);
-
+    free (vetorAgendamentos); // Alterado
+    free(vetorVisita);
     return 0;
 }
 
@@ -224,6 +224,175 @@ void escreverCliente (tipoCliente cliente)
 /** ------------------- Funções dos FICHEIROS ------------------- **/
 
 
+void escreverFicheiroBinario(tipoCliente vetorClientes[MAX], int quantClientes, tipoAgendamento *vetorAgendamentos, int quantAgendamentos, tipoVisita *vetorVisita, int quantVisitas)
+{
+    FILE *ficheiro;
+    int quantValoresEscritos;
+
+    ficheiro = fopen("dados.dat", "wb");
+
+    if (ficheiro == NULL)
+    {
+        printf("\n\nERRO: falha na abertura do ficheiro.\n\n");
+    }
+    else
+    {
+        // Write quantity of clients
+        quantValoresEscritos = fwrite(&quantClientes, sizeof(int), 1, ficheiro);
+        if (quantValoresEscritos != 1)
+        {
+            printf("\n\nERRO: falha na escrita da quantidade de clientes\n\n");
+        }
+        else
+        {
+            // Write cliente data
+            quantValoresEscritos = fwrite(vetorClientes, sizeof(tipoCliente), quantClientes, ficheiro);
+            if (quantValoresEscritos != quantClientes)
+            {
+                printf("\n\nERRO: falha na escrita dos dados dos clientes\n\n");
+            }
+
+            // Write quantity of agendamentos (if any)
+            quantValoresEscritos = fwrite(&quantAgendamentos, sizeof(int), 1, ficheiro);
+            if (quantValoresEscritos != 1)
+            {
+                printf("\n\nERRO: falha na escrita da quantidade de agendamentos\n\n");
+            }
+            else if (quantAgendamentos > 0)
+            {
+                // Write agendamento data
+                quantValoresEscritos = fwrite(vetorAgendamentos, sizeof(tipoAgendamento), quantAgendamentos, ficheiro);
+                if (quantValoresEscritos != quantAgendamentos)
+                {
+                    printf("\n\nERRO: falha na escrita dos dados dos agendamentos\n\n");
+                }
+            }
+
+            // Write quantity of visitas (if any)
+            quantValoresEscritos = fwrite(&quantVisitas, sizeof(int), 1, ficheiro);
+            if (quantValoresEscritos != 1)
+            {
+                printf("\n\nERRO: falha na escrita da quantidade de visitas\n\n");
+            }
+            else if (quantVisitas > 0)
+            {
+                // Write visita data
+                quantValoresEscritos = fwrite(vetorVisita, sizeof(tipoVisita), quantVisitas, ficheiro);
+                if (quantValoresEscritos != quantVisitas)
+                {
+                    printf("\n\nERRO: falha na escrita dos dados das visitas\n\n");
+                }
+            }
+        }
+
+        fclose(ficheiro);
+    }
+}
+
+
+void lerFicheiroBinario(tipoCliente vetorClientes[MAX], int *quantClientes, tipoAgendamento **vetorAgendamentos, int *quantAgendamentos, tipoVisita **vetorVisita, int *quantVisitas)
+{
+    FILE *ficheiro;
+    int quantValoresLidos, erro = 0;
+
+    ficheiro = fopen("dados.dat", "rb");
+
+    if (ficheiro == NULL)
+    {
+        printf("\n\nERRO: falha na abertura do ficheiro.\n\n");
+    }
+    else
+    {
+        // Read quantity of clients
+        quantValoresLidos = fread(quantClientes, sizeof(int), 1, ficheiro);
+        if (quantValoresLidos != 1)
+        {
+            printf("\n\nERRO: falha na leitura da quantidade de clientes\n\n");
+            erro = 1;
+        }
+        else
+        {
+            // Read cliente data
+            quantValoresLidos = fread(vetorClientes, sizeof(tipoCliente), *quantClientes, ficheiro);
+            if (quantValoresLidos != *quantClientes)
+            {
+                printf("\n\nERRO: falha na leitura dos dados dos clientes\n\n");
+                erro = 1;
+            }
+
+            // Read quantity of agendamentos (if any)
+            quantValoresLidos = fread(quantAgendamentos, sizeof(int), 1, ficheiro);
+            if (quantValoresLidos != 1)
+            {
+                printf("\n\nCuidado: falha na leitura da quantidade de agendamentos. Considerando 0 agendamentos.\n\n");
+                *quantAgendamentos = 0;
+            }
+            else if (*quantAgendamentos > 0)
+            {
+                // Allocate memory for agendamento data
+                *vetorAgendamentos = (tipoAgendamento *)malloc((*quantAgendamentos) * sizeof(tipoAgendamento));
+                if (*vetorAgendamentos == NULL)
+                {
+                    printf("\n\nERRO: falha na alocação de memória para agendamentos\n\n");
+                    erro = 1;
+                }
+                else
+                {
+                    // Read agendamento data
+                    quantValoresLidos = fread(*vetorAgendamentos, sizeof(tipoAgendamento), *quantAgendamentos, ficheiro);
+                    if (quantValoresLidos != *quantAgendamentos)
+                    {
+                        printf("\n\nERRO: falha na leitura dos dados dos agendamentos\n\n");
+                        erro = 1;
+                    }
+                }
+            }
+
+            // Read quantity of visitas (if any)
+            quantValoresLidos = fread(quantVisitas, sizeof(int), 1, ficheiro);
+            if (quantValoresLidos != 1)
+            {
+                printf("\n\nCuidado: falha na leitura da quantidade de visitas. Considerando 0 visitas.\n\n");
+                *quantVisitas = 0;
+            }
+            else if (*quantVisitas > 0)
+            {
+                // Allocate memory for visita data
+                *vetorVisita = (tipoVisita *)malloc((*quantVisitas) * sizeof(tipoVisita));
+                if (*vetorVisita == NULL)
+                {
+                    printf("\n\nERRO: falha na alocação de memória para visitas\n\n");
+                    erro = 1;
+                }
+                else
+                {
+                    // Read visita data
+                    quantValoresLidos = fread(*vetorVisita, sizeof(tipoVisita), *quantVisitas, ficheiro);
+                    if (quantValoresLidos != *quantVisitas)
+                    {
+                        printf("\n\nERRO: falha na leitura dos dados das visitas\n\n");
+                        erro = 1;
+                    }
+                }
+            }
+        }
+
+        if (erro == 1)
+        {
+            *quantClientes = 0;
+            free(*vetorAgendamentos);
+            *quantAgendamentos = 0;
+            free(*vetorVisita);
+            *quantVisitas = 0;
+        }
+
+        fclose(ficheiro);
+    }
+}
+
+
+
+/*
 void escreverFicheiroBinario(tipoCliente vetorClientes[MAX], int quantClientes)
 {
     FILE *ficheiro;
@@ -294,17 +463,15 @@ void lerFicheiroBinario(tipoCliente vetorClientes[MAX], int *quantClientes)
         fclose(ficheiro);
     }
 }
-
-
+*/
 /** ----------------------- Funções dos MENUS ------------------------- **/
 
-int menu(int totalClientes, int totalAgendamentos, int totalVisitas)
+int menu(int totalClientes)
 {
     int opcao;
 
     printf("\n\n---------------- TECNICO DE REPARACOES - AGENDA ----------------\n\n");
     printf("Total de Clientes: %d\n\n", totalClientes);
-    printf("Total de Agendamentos: %d\t\tTotal de Visitas: %d\n\n", totalAgendamentos, totalVisitas);
     printf("\t1 - Clientes\n\t2 - Agendamentos\n\t3 - Estatisticas\n\t4 - Ficheiros\n\n\t0 - Sair\n\n");
 
     opcao = lerInteiro("\t\tIndique a opcao:", 0, 4);
@@ -362,3 +529,5 @@ int menuFicheiros(void)
 
     return opcao;
 }
+
+

@@ -31,13 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Exame.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Exame.h" />
 		<Unit filename="declaracoes.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="exame.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="exame.h" />
 		<Unit filename="funcoesAuxiliares.c">
 			<Option compilerVar="CC" />
 		</Unit>

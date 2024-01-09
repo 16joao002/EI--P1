@@ -1,9 +1,6 @@
 #ifndef FUNCOESAUXILIARES_H_INCLUDED
 #define FUNCOESAUXILIARES_H_INCLUDED
 
-
-
-
 tipoData lerData (void);
 tipoHorario lerHorario (void);
 

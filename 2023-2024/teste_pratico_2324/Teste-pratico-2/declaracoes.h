@@ -38,8 +38,12 @@ typedef struct
     char nome [TEXTO_BREVE];
     char morada [TEXTO_LONGO];
     int telefone;
-    int quantidadeAgendamentos;
 } tipoCliente;
+
+
+
+
+
 
 
 #endif // DECLARACOES_H_INCLUDED

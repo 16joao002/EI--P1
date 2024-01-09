@@ -36,20 +36,7 @@
 
 1517088969 /Users/thread/VNTAVORA/cad_lecc/cp1/a1718/P1_EI1718/Testes/Exame/a1617/ExameNormal_2016_2017_FINAL/RegimeDiurno/numeroNome_ExameP1/funcoesAuxiliares.h
 
-1704768076 source:c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\teste-pratico-2\exame.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<ctype.h>
-	"declaracoes.h"
-	"funcoesAuxiliares.h"
-	"Exame.h"
-
-1704744141 c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\teste-pratico-2\declaracoes.h
-
-1704744141 c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\teste-pratico-2\funcoesauxiliares.h
-
-1704744141 source:c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\teste-pratico-2\funcoesauxiliares.c
+1517088898 source:c:\users\aida\desktop\recurso\numeronome_examep1\funcoesauxiliares.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -57,12 +44,205 @@
 	"declaracoes.h"
 	"funcoesAuxiliares.h"
 
-1704767816 source:c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\teste-pratico-2\main.c
+1675711403 c:\users\aida\desktop\recurso\numeronome_examep1\declaracoes.h
+
+1675619819 c:\users\aida\desktop\recurso\numeronome_examep1\funcoesauxiliares.h
+
+1675808430 source:c:\users\aida\desktop\recurso\numeronome_examep1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"declaracoes.h"
 	"funcoesAuxiliares.h"
-	"Exame.h"
+	"exame.h"
 
-1704768119 c:\users\joaog\documents\github\ei_p1\2023-2024\teste_pratico_2324\teste-pratico-2\exame.h
+1675810112 source:c:\users\aida\desktop\recurso\numeronome_examep1\exame.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675808382 c:\users\aida\desktop\recurso\numeronome_examep1\exame.h
+
+1675856784 source:c:\users\shadow\desktop\recurso\numeronome_examep1\exame.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675711403 c:\users\shadow\desktop\recurso\numeronome_examep1\declaracoes.h
+
+1675619819 c:\users\shadow\desktop\recurso\numeronome_examep1\funcoesauxiliares.h
+
+1675855619 c:\users\shadow\desktop\recurso\numeronome_examep1\exame.h
+
+1517088898 source:c:\users\shadow\desktop\recurso\numeronome_examep1\funcoesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+
+1675856565 source:c:\users\shadow\desktop\recurso\numeronome_examep1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675856784 source:c:\users\user\downloads\recurso\recurso\numeronome_examep1\exame.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675711403 c:\users\user\downloads\recurso\recurso\numeronome_examep1\declaracoes.h
+
+1675619819 c:\users\user\downloads\recurso\recurso\numeronome_examep1\funcoesauxiliares.h
+
+1675855619 c:\users\user\downloads\recurso\recurso\numeronome_examep1\exame.h
+
+1517088898 source:c:\users\user\downloads\recurso\recurso\numeronome_examep1\funcoesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+
+1675862105 source:c:\users\user\downloads\recurso\recurso\numeronome_examep1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675856786 source:c:\users\guilh\desktop\universidade\uni-cadeiras de 1 ano\1 semestre\programacao 1\recurso\recurso2_algumasfuncoesmal\exame.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675711404 c:\users\guilh\desktop\universidade\uni-cadeiras de 1 ano\1 semestre\programacao 1\recurso\recurso2_algumasfuncoesmal\declaracoes.h
+
+1675619820 c:\users\guilh\desktop\universidade\uni-cadeiras de 1 ano\1 semestre\programacao 1\recurso\recurso2_algumasfuncoesmal\funcoesauxiliares.h
+
+1675855620 c:\users\guilh\desktop\universidade\uni-cadeiras de 1 ano\1 semestre\programacao 1\recurso\recurso2_algumasfuncoesmal\exame.h
+
+1517088898 source:c:\users\guilh\desktop\universidade\uni-cadeiras de 1 ano\1 semestre\programacao 1\recurso\recurso2_algumasfuncoesmal\funcoesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+
+1675862106 source:c:\users\guilh\desktop\universidade\uni-cadeiras de 1 ano\1 semestre\programacao 1\recurso\recurso2_algumasfuncoesmal\main.c
+	<stdio.h>
+	<stdlib.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675856786 source:c:\users\shadow\desktop\p1_teste\programacao 1\programacao 1\recurso\recurso2_algumasfuncoesmal\exame.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675711404 c:\users\shadow\desktop\p1_teste\programacao 1\programacao 1\recurso\recurso2_algumasfuncoesmal\declaracoes.h
+
+1675619820 c:\users\shadow\desktop\p1_teste\programacao 1\programacao 1\recurso\recurso2_algumasfuncoesmal\funcoesauxiliares.h
+
+1675855620 c:\users\shadow\desktop\p1_teste\programacao 1\programacao 1\recurso\recurso2_algumasfuncoesmal\exame.h
+
+1517088898 source:c:\users\shadow\desktop\p1_teste\programacao 1\programacao 1\recurso\recurso2_algumasfuncoesmal\funcoesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+
+1704795742 source:c:\users\shadow\desktop\p1_teste\programacao 1\programacao 1\recurso\recurso2_algumasfuncoesmal\main.c
+	<stdio.h>
+	<stdlib.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1704805331 source:c:\users\joaog\desktop\exame2_moodle_rr\exame.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675711404 c:\users\joaog\desktop\exame2_moodle_rr\declaracoes.h
+
+1675619820 c:\users\joaog\desktop\exame2_moodle_rr\funcoesauxiliares.h
+
+1704804995 c:\users\joaog\desktop\exame2_moodle_rr\exame.h
+
+1517088898 source:c:\users\joaog\desktop\exame2_moodle_rr\funcoesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+
+1704805936 source:c:\users\joaog\desktop\exame2_moodle_rr\main.c
+	<stdio.h>
+	<stdlib.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1704805331 source:c:\users\joaog\desktop\ta feito\exame2_moodle_rr\exame.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
+
+1675711404 c:\users\joaog\desktop\ta feito\exame2_moodle_rr\declaracoes.h
+
+1675619820 c:\users\joaog\desktop\ta feito\exame2_moodle_rr\funcoesauxiliares.h
+
+1704804995 c:\users\joaog\desktop\ta feito\exame2_moodle_rr\exame.h
+
+1517088898 source:c:\users\joaog\desktop\ta feito\exame2_moodle_rr\funcoesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+
+1704805936 source:c:\users\joaog\desktop\ta feito\exame2_moodle_rr\main.c
+	<stdio.h>
+	<stdlib.h>
+	"declaracoes.h"
+	"funcoesAuxiliares.h"
+	"exame.h"
 

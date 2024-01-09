@@ -1,32 +1,37 @@
 #ifndef EXAME_H_INCLUDED
 #define EXAME_H_INCLUDED
 
-#define CUSTO_MAX 500
-#define CUSTO_MIN 50
-
-typedef struct{
-    int id;
+typedef struct
+{
+    int codigo;
     int numContribuinte;
-    tipoData data;
-    tipoHorario horario;
-    char descricao[TEXTO_LONGO];
+    tipoData diaVisita;
+    tipoHorario horaVisita;
+    char descricaoProblema [TEXTO_LONGO];
+    int quantidadeAgendamentos;
+} tipoAgendamento;
+
+typedef struct
+{
+    int codigo;
     float custo;
-    int grauSatisfacao;
-}tipoAgendamento;
+    char satisfacaoCliente[TEXTO_LONGO];
+} tipoVisita;
 
-//inserir agendamento
-tipoAgendamento inserirNovoAgendamento(tipoAgendamento *vetorAgendamento,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes);
-//procurar
-int procurarAgendamento(tipoAgendamento *vetorAgendamento, int *quantidadeAgendamentos, tipoData data, tipoHorario horario);
-//visita
-void registarVisita(tipoAgendamento *vetorAgendamento, int *quantidadeAgendamentos, tipoCliente clientes[MAX], int quantidadeClientes, int *quantidadeVisitas);
-//consultar
-void consultarAgendamento(tipoAgendamento *vetorAgendamento, int quantidadeAgendamentos, tipoCliente cliente[MAX], int quantidadeClientes);
-//melhores cleintes
-void melhoresClientes(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *vetorAgendamento, int quantidadeAgendamentos);
-//satisfacao
-void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *vetorAgendamento, int quantidadeAgendamentos);
-//escrever agendamento
-void escreverAgendamento(tipoAgendamento *vetorAgendamento);
+tipoAgendamento *inserirAgendamentos (tipoAgendamento *vetorAgendamentos,tipoCliente cliente[MAX], int *quantAgendamentos, int quantClientes, tipoVisita *vetorVisitas);
+int gerarId ();
+void listarClientesAgendamentos (tipoCliente vetorClientes[MAX],tipoAgendamento *vetorAgendamentos,tipoVisita *visita, int quantClientes, int quantAgendamentos);
+void escreverAgendamentos (tipoAgendamento agendamento, tipoData data);
+int procurarCliente (tipoCliente vetorClientes[MAX], int quantCliente, int numContribuinte);
+void escreverData (tipoData data);
+void escreverHora (tipoHorario hora);
+tipoVisita *registarVisita (tipoVisita *vetorVisita,tipoAgendamento *vetorAgendamentos, int quantAgendamentos, int *quantVisitas);
+void consultaAgendamento(tipoAgendamento *vetorAgendamento, int quantAgendamentos, tipoCliente vetorClientes[MAX]);
+int procurarData(tipoAgendamento *vetorAgendamento, int quantAgendamentos);
+void listarAgendamentos(tipoCliente vetorClientes[MAX], int quantClientes, tipoAgendamento *vetorAgendamento, int quantAgendamentos);
+void escreverAgendamento(tipoAgendamento agendamento, tipoVisita visita);
+void percentagemSatisfacao(tipoVisita *visita, int quantclientes, int *quantVisitas);
+void melhorCliente (tipoCliente vetorClientes[MAX],tipoAgendamento *vetorAgendamentos, int quantClientes, int quantAgendamentos);
+void consultaAgendamentoData(tipoAgendamento *vetorAgendamentos, int quantAgendamentos, tipoCliente vetorClientes[MAX]);
 
-#endif // EXAME_H_INCLUDED
+#endif
