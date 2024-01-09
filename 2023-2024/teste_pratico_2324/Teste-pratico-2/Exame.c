@@ -146,44 +146,64 @@ void registarVisita(tipoAgendamento *vetorAgendamentos, int *quantidadeAgendamen
 
 
 //listar clientes e respetivos agendamentos - listar todos os dados de cada utilizador e os seus agendamentos
-void consultarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgendamentos, tipoCliente cliente[MAX], int quantidadeClientes)
+void consultarAgendamento(tipoAgendamento *agendamentos, int quantidadeAgendamentos, tipoCliente cliente[MAX], int quantidadeClientes)
 {
+    int i, j;
 
-    tipoData data;
-    tipoHorario horario;
-    int posAgendamento;
-    int i;
-
-    if(quantidadeClientes < 0)
+    if (quantidadeClientes > 0)
     {
-        printf("Erro - Nao existem agendamentos.\n");
-    }
-    else
-    {
-        //pede a data ao utilizador
-        data = lerData();
-        horario = lerHorario();
-        posAgendamento= procurarAgendamento(vetorAgendamentos, quantidadeAgendamentos, data, horario);
-
-        if(posAgendamento == -1)
+        printf("\n\n*********** LISTAGEM dos CLIENTES e MARCACOES ***********\n\n");
+        for (i=0; i < quantidadeClientes; i++)
         {
-            printf("Erro - Nao existem agendamentos");
-        }
-        else
-        {
-            for(i = 0; i < quantidadeAgendamentos; i++)
+            escreverCliente(cliente[i]);
+            for (j=0; j < quantidadeAgendamentos; j++)
             {
-                //colocar o print dos agendamentos feitos neste dia
+                if (agendamentos[j].numContribuinte == cliente[i].numContribuinte)
+                {
+                    printf("ID: %d\t\t\tData: %d/%d/%d\n", agendamentos[j].id, agendamentos[j].data.dia, agendamentos[j].data.mes, agendamentos[j].data.ano);
+                    printf("Horario: %d:%d\n", agendamentos[j].horario.horas, agendamentos[j].horario.minutos);
+                    printf("Problema: %s\n", agendamentos[j].descricao);
+                    if(agendamentos[j].custo == -1)
+                    {
+                        printf("Custo: Indisponivel. Visita ainda nao foi feita.\n");
+                    }
+                    else
+                    {
+                        printf("Custo: %.2f euros\n", agendamentos[j].custo);
+                    }
+
+                    if(agendamentos[j].grauSatisfacao == -1)
+                    {
+                        printf("Grau de Satisfacao: Indisponivel. Visita ainda nao foi feita.\n\n");
+                    }
+                    else
+                    {
+                        switch(agendamentos[j].grauSatisfacao)
+                        {
+                        case 1:
+                            printf("Grau de Satisfacao: Fraco");
+                            break;
+                        case 2:
+                            printf("Grau de Satisfacao: Bom");
+                            break;
+                        case 3:
+                            printf("Grau de Satisfacao: Excelente");
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
-
-    //falta listar a quantidade total de agendamentos de uma determinada data...
+    else
+    {
+        printf("\n\nATENCAO: Nao existem clientes inseridos.\n\n");
+    }
 }
 
-
 //Clientes com mais agendamentos registados
-void melhoresClientes(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *agendamentos, int quantidadeAgendamentos){
+void melhoresClientes(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *agendamentos, int quantidadeAgendamentos)
+{
     int i, j, maxAgendamentos = 0;
     printf("\n\nMelhor(es) Cliente(s):\n");
 
@@ -213,7 +233,8 @@ void melhoresClientes(tipoCliente clientes[MAX], int quantidadeClientes, tipoAge
 
 
 //Percentagem de satisfacao dos clientes
-void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *agendamentos, int quantidadeAgendamentos){
+void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *agendamentos, int quantidadeAgendamentos)
+{
     int i, soma1, soma2, soma3, somaTotal;
     soma1 = 0;
     soma2 = 0;
@@ -231,12 +252,14 @@ void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgend
         {
             soma1++;
         }
-        else{
+        else
+        {
             if (agendamentos[i].grauSatisfacao == 2)
             {
                 soma2++;
             }
-            else{
+            else
+            {
                 soma3++;
             }
         }
@@ -256,7 +279,7 @@ void escreverAgendamento(tipoAgendamento *vetorAgendamento)
 {
     printf("\n\nContribuinte: %d\t\tID: %d\n", vetorAgendamento->numContribuinte, vetorAgendamento->id);
     printf("\n\nCusto: %.2f\t\tGrau de satisfacao: %d\n", vetorAgendamento->custo, vetorAgendamento->grauSatisfacao);
-    printf("\n\nData: %d/%d/%d\t\tHora: %d:%d\n", vetorAgendamento->data.dia, vetorAgendamento->data.mes, vetorAgendamento->data.ano , vetorAgendamento->horario.horas, vetorAgendamento->horario.minutos);
+    printf("\n\nData: %d/%d/%d\t\tHora: %d:%d\n", vetorAgendamento->data.dia, vetorAgendamento->data.mes, vetorAgendamento->data.ano, vetorAgendamento->horario.horas, vetorAgendamento->horario.minutos);
     printf("Descricao: %s\n",vetorAgendamento->descricao);
 }
 

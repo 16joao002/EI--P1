@@ -16,5 +16,10 @@ typedef struct{
 
 void inserirNovoAgendamento(tipoAgendamento *vetorAgendamentos,int *quantidadeAgendamentos,tipoCliente clientes[MAX], int quantidadeClientes);
 int procurarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgendamentos, tipoData data, tipoHorario horario);
+void registarVisita(tipoAgendamento *vetorAgendamentos, int *quantidadeAgendamentos, tipoCliente clientes[MAX], int quantidadeClientes, int *quantidadeVisitas);
+void consultarAgendamento(tipoAgendamento *vetorAgendamentos, int quantidadeAgendamentos, tipoCliente cliente[MAX], int quantidadeClientes);
+void melhoresClientes(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *agendamentos, int quantidadeAgendamentos);
+void percSatisfacao(tipoCliente clientes[MAX], int quantidadeClientes, tipoAgendamento *agendamentos, int quantidadeAgendamentos);
+void escreverAgendamento(tipoAgendamento *vetorAgendamento);
 
 #endif // EXAME_H_INCLUDED
