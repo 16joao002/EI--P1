@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1675639367 source:c:\users\joão bettencourt\documents\github\recursop1\recursop1\dados.c
+
+1675639406 source:c:\users\joão bettencourt\documents\github\recursop1\recursop1\exame.c
+
+1676343876 source:c:\users\joão bettencourt\documents\github\recursop1\recursop1\funcoesaux.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	<locale.h>
+	"funcoesaux.h"
+	"declaracoes.h"
+
+1676177212 c:\users\joão bettencourt\documents\github\recursop1\recursop1\funcoesaux.h
+	"declaracoes.h"
+
+1676344532 c:\users\joão bettencourt\documents\github\recursop1\recursop1\declaracoes.h
+
+1676344062 source:c:\users\joão bettencourt\documents\github\recursop1\recursop1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"declaracoes.h"
+	"funcoesaux.h"
+	"menus.h"
+
+1675639774 c:\users\joão bettencourt\documents\github\recursop1\recursop1\exame.h
+
+1676343615 c:\users\joão bettencourt\documents\github\recursop1\recursop1\menus.h
+
+1676344262 source:c:\users\joão bettencourt\documents\github\recursop1\recursop1\menus.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	<locale.h>
+	"declaracoes.h"
+	"funcoesaux.h"
+
+1676343737 source:c:\users\joão bettencourt\documents\github\recursop1\recursop1\funcionalidades.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	<locale.h>
+	"declaracoes.h"
+	"funcoesaux.h"
+	"menus.h"
+
