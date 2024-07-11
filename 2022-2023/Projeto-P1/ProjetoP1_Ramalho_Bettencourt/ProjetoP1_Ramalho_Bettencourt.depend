@@ -1,0 +1,225 @@
+# depslib dependency file v1.0
+1673478852 source:c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\funcoesauxiliares.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"estruturas.h"
+
+1673465695 c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\funcoesauxiliares.h
+	"estruturas.h"
+	"constantes.h"
+
+1673482471 source:c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funcoesAuxiliares.h"
+	"funcoesPrincipais.h"
+	"ficheiros.h"
+
+1673479275 source:c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\funcoesprincipais.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<ctype.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"funcoesPrincipais.h"
+
+1673370950 c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\constantes.h
+
+1673451466 c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\estruturas.h
+	"constantes.h"
+
+1673294288 c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\funcoesprincipais.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	"estruturas.h"
+	"constantes.h"
+	"funcoesPrincipais.h"
+	"funcoesAuxiliares.h"
+
+1673482694 c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\funcoesprincipais.h
+	"estruturas.h"
+	"constantes.h"
+
+1673360738 c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\funcoesauxiliares.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"estruturas.h"
+
+1673482594 source:c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\ficheiros.c
+	<stdlib.h>
+	<stdio.h>
+	"funcoesPrincipais.h"
+
+1673482570 c:\app\escola\programação\projeto_01\projetop1_ramalho_bettencourt\ficheiros.h
+
+1673482772 source:c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\ficheiros.c
+	<stdlib.h>
+	<stdio.h>
+	"funcoesPrincipais.h"
+
+1673483844 c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\funcoesprincipais.h
+	"estruturas.h"
+	"constantes.h"
+
+1673482772 c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\estruturas.h
+	"constantes.h"
+
+1673482772 c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\constantes.h
+
+1673482772 source:c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\funcoesauxiliares.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"estruturas.h"
+
+1673482772 c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\funcoesauxiliares.h
+	"estruturas.h"
+	"constantes.h"
+
+1673482772 source:c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\funcoesprincipais.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<ctype.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"funcoesPrincipais.h"
+
+1673482772 source:c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funcoesAuxiliares.h"
+	"funcoesPrincipais.h"
+	"ficheiros.h"
+
+1673482772 c:\users\joão bettencourt\desktop\projetop1_ramalho_bettencourt\ficheiros.h
+
+1673557811 source:c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\ficheiros.c
+	<stdlib.h>
+	<stdio.h>
+	"funcoesPrincipais.h"
+
+1673557481 c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\funcoesprincipais.h
+	"estruturas.h"
+	"constantes.h"
+
+1673558520 c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\estruturas.h
+	"constantes.h"
+
+1673557481 c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\constantes.h
+
+1673544138 source:c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\funcoesauxiliares.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	<locale.h>
+	"funcoesAuxiliares.h"
+	"estruturas.h"
+
+1673544138 c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\funcoesauxiliares.h
+	"estruturas.h"
+	"constantes.h"
+
+1673558779 source:c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\funcoesprincipais.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<ctype.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"funcoesPrincipais.h"
+
+1673557481 source:c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"funcoesAuxiliares.h"
+	"funcoesPrincipais.h"
+	"ficheiros.h"
+
+1673543755 c:\users\joão bettencourt\documents\github\projeto-p1\projetop1_ramalho_bettencourt\ficheiros.h
+
+1673482772 source:c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\ficheiros.c
+	<stdlib.h>
+	<stdio.h>
+	"funcoesPrincipais.h"
+
+1673535576 c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\funcoesprincipais.h
+	"estruturas.h"
+	"constantes.h"
+
+1673495553 c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\estruturas.h
+	"constantes.h"
+
+1673482772 c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\constantes.h
+
+1673535526 source:c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\funcoesauxiliares.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"estruturas.h"
+
+1673486635 c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\funcoesauxiliares.h
+	"estruturas.h"
+	"constantes.h"
+
+1673535586 source:c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funcoesAuxiliares.h"
+	"funcoesPrincipais.h"
+	"ficheiros.h"
+
+1673482772 c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\ficheiros.h
+
+1673535594 source:c:\users\zefra\onedrive\ambiente de trabalho\projetop1_ramalho_bettencourt\funcoesprincipais.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<ctype.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"funcoesPrincipais.h"
+<<<<<<< HEAD
+=======
+
+1673489382 source:c:\users\guilh\documents\github\projeto-p1\projetop1_ramalho_bettencourt\ficheiros.c
+	<stdlib.h>
+	<stdio.h>
+	"funcoesPrincipais.h"
+
+1673493946 c:\users\guilh\documents\github\projeto-p1\projetop1_ramalho_bettencourt\funcoesprincipais.h
+	"estruturas.h"
+	"constantes.h"
+
+1673489382 c:\users\guilh\documents\github\projeto-p1\projetop1_ramalho_bettencourt\estruturas.h
+	"constantes.h"
+
+1673489382 c:\users\guilh\documents\github\projeto-p1\projetop1_ramalho_bettencourt\constantes.h
+
+1673493946 source:c:\users\guilh\documents\github\projeto-p1\projetop1_ramalho_bettencourt\funcoesauxiliares.c
+	<stdlib.h>
+	<ctype.h>
+	<stdio.h>
+	<string.h>
+	"funcoesAuxiliares.h"
+	"estruturas.h"
+
+1673489758 c:\users\guilh\documents\github\projeto-p1\projetop1_ramalho_bettencourt\funcoesauxiliares.h
+	"estruturas.h"
+	"constantes.h"
+>>>>>>> e8cc48f19d6b78f8ce74a177c5ed151fdf0c6841
+
